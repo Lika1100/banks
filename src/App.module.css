@@ -1,0 +1,43 @@
+.bankLogo {
+    max-height: 1em;
+    max-width: 1em;
+}
+
+.depositsList {
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+.deposit {
+    text-align: left;
+}
+
+.deposit td,
+.deposit th {
+    padding: 4px 8px;
+}
+
+.deposit:nth-child(odd) {
+    background: #eee;
+}
+
+.depositHeader {
+    margin: 0;
+    padding: 0.5em;
+    font-weight: 400;
+}
+
+.banksList {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.banksList li {
+    width: 200px;
+    margin: 2px 2px;
+    padding: 4px 8px;
+    background: #eee;
+    border-radius: 4px;
+}

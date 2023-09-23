@@ -1,7 +1,7 @@
 import {UpdateEvent} from "./types";
 
 
-const mkbEvent: UpdateEvent = {
+export const mkbEvent: UpdateEvent = {
     bankId: "mkb",
     date: new Date(),
     deposits: [
@@ -13,7 +13,7 @@ const mkbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: true,
+            isNew: true,
             finuslugi: true,
             retiree: false,
         },
@@ -25,14 +25,14 @@ const mkbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: true,
+            isNew: true,
             finuslugi: true,
             retiree: false,
         },
     ],
 }
 
-const bgfEvent: UpdateEvent = {
+export  const bgfEvent: UpdateEvent = {
     bankId: "bgfbank",
     date: new Date(),
     deposits: [
@@ -45,7 +45,7 @@ const bgfEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -58,7 +58,7 @@ const bgfEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -71,7 +71,7 @@ const bgfEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -79,7 +79,7 @@ const bgfEvent: UpdateEvent = {
     ],
 }
 
-const giEvent: UpdateEvent = {
+export const giEvent: UpdateEvent = {
     bankId: "garant-invest",
     date: new Date(),
     deposits: [
@@ -92,7 +92,7 @@ const giEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -105,7 +105,7 @@ const giEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -118,7 +118,7 @@ const giEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -131,7 +131,7 @@ const giEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -139,7 +139,7 @@ const giEvent: UpdateEvent = {
 }
 
 
-const itbEvent: UpdateEvent = {
+export const itbEvent: UpdateEvent = {
     bankId: "investtorgbank",
     date: new Date(),
     deposits: [
@@ -151,7 +151,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -163,7 +163,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -175,7 +175,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -187,7 +187,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -199,7 +199,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: true,
+            isNew: true,
             finuslugi: false,
             retiree: false,
         },
@@ -211,7 +211,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: true,
+            isNew: true,
             finuslugi: false,
             retiree: false,
         },
@@ -223,7 +223,7 @@ const itbEvent: UpdateEvent = {
             interest: "end",
             replenishment: 0,
             withdrawal: false,
-            new: true,
+            isNew: true,
             finuslugi: false,
             retiree: false,
         },
@@ -235,7 +235,7 @@ const itbEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 30,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -247,7 +247,7 @@ const itbEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 30,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },
@@ -259,7 +259,7 @@ const itbEvent: UpdateEvent = {
             interest: "monthly",
             replenishment: 30,
             withdrawal: false,
-            new: false,
+            isNew: false,
             finuslugi: false,
             retiree: false,
         },

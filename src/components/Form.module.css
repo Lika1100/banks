@@ -1,0 +1,49 @@
+.nameLabel {
+
+}
+.nameInput {
+
+}
+.wrapRadio {
+    display: flex;
+}
+.radioLabel__end {
+    width: 40%;
+}
+.radioLabel__month {
+    width: 40%;
+}
+.radioInput__end {
+    width: 100%;
+   
+}
+
+.radioInput__month {
+   width: 100%;
+}
+
+.radioInput__end::after {
+   content: "end";
+   display: flex;
+   justify-content: center;
+   background-color: white;
+   padding: 0 2px;
+   color: black;
+   border: 1px solid black;
+}
+
+.radioInput__month::after {
+    content: "month";
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: white;
+    padding: 0 2px;
+    color: black;
+    border: 1px solid black;
+ }
+
+.radioInput__end:checked::after, .radioInput__month:checked::after {
+    background-color: lightsalmon;
+ }
+

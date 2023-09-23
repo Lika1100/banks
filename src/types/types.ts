@@ -15,7 +15,7 @@ export interface Deposit {
     max: number;
     interest: "monthly" | "end";
     replenishment: number;
-    new: boolean;
+    isNew: boolean;
     finuslugi: boolean;
     retiree: boolean;
     withdrawal: boolean;

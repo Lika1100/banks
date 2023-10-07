@@ -1,49 +1,43 @@
-.nameLabel {
-
-}
-.nameInput {
-
-}
 .wrapRadio {
-    display: flex;
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
 }
-.radioLabel__end {
-    width: 40%;
+.radioInput {
+    display: inline-block;
+    width: 62px; /* ширина переключателя */
+    height: 24px; /* высота переключателя */
+    border-radius: 12px; /* радиус скругления */
+    background: #bfbfbf; /* цвет фона */
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 300ms; /* анимация */
 }
-.radioLabel__month {
-    width: 40%;
-}
-.radioInput__end {
-    width: 100%;
+.radioInput {
    
 }
 
-.radioInput__month {
-   width: 100%;
+.radioInput::after {
+  content: "";
+  height: 36px; /* высота кнопки */
+  width: 36px; /* ширина кнопки */
+  border-radius: 18px; /* радиус кнопки */
+  background: #fff; /* цвет кнопки */
+  top: -8px; /* положение кнопки по вертикали относительно основы */
+  left: 8px; /* положение кнопки по горизонтали относительно основы */
+  transition-duration: 300ms; /* анимация */
+  box-shadow: 0 0 10px 0 #999999; /* тень */
+  position: absolute;
+  z-index: 1;
 }
 
-.radioInput__end::after {
-   content: "end";
-   display: flex;
-   justify-content: center;
-   background-color: white;
-   padding: 0 2px;
-   color: black;
-   border: 1px solid black;
+.radioInput:checked:after {
+    content: "";
+    background-color: aquamarine;
+    width: 36px;
+    height: 36px;
 }
-
-.radioInput__month::after {
-    content: "month";
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    background-color: white;
-    padding: 0 2px;
-    color: black;
-    border: 1px solid black;
- }
-
-.radioInput__end:checked::after, .radioInput__month:checked::after {
-    background-color: lightsalmon;
- }
-

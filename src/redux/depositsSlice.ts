@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Deposit, BankId } from "../types/types";
 import { mkbEvent, bgfEvent, giEvent, itbEvent } from "../types/data";
+import crypto from "crypto";
 
 // Record<BankId, { current: Deposit[], draft: Deposit[] }>
 const initialState: Record<BankId, { current: Deposit[], draft: Deposit[] }> = {
@@ -28,27 +29,30 @@ const initialState: Record<BankId, { current: Deposit[], draft: Deposit[] }> = {
 // 4. При сохранении черновика тоже обновлять стор в редаксе
 // 5. добавить ещё один столбец и там пересчитать ставку в месяц
 // 6. сделать сортировку по честной ставке и по сроку
+
 export const depositsSlice = createSlice({
     name: "deposits",
     initialState,
     reducers: {
-      handleUpdate(state, action: PayloadAction<{id: number, bankId: string, depositUpdate: Partial<Deposit>}>) {
-        const {id, bankId, depositUpdate} = action.payload
-        Object.assign(state[bankId].draft[id], depositUpdate)
+      handleUpdate(state, action: PayloadAction<{bankId: string, updatedDeposit: Deposit}>) {
+        const { bankId, updatedDeposit } = action.payload
+        const index = state[bankId].draft.findIndex((x) => x.id === updatedDeposit.id)
+        state[bankId].draft[index] = updatedDeposit;
       },
-      handleCopy: (state, action: PayloadAction<{id: number, bankId: string }>) => {
+      handleCopy: (state, action: PayloadAction<{id: string, bankId: string }>) => {
         const {id, bankId} = action.payload
-        const currentDeposits = state[bankId].draft
-        currentDeposits.push({...currentDeposits[id]})
+        const draftDepositIndex = state[bankId].draft.findIndex((x) => x.id === id)
+        const depositCopy: Deposit = {
+          ...state[bankId].draft[draftDepositIndex],
+          id: window.crypto.randomUUID(),
+        }
+        state[bankId].draft.splice(draftDepositIndex + 1, 0, depositCopy)
       },
-      handleRemove: (state, action: PayloadAction<{id: number, bankId: string }>) => {
+      handleRemove: (state, action: PayloadAction<{id: string, bankId: string }>) => {
         const {id, bankId} = action.payload
-        const currentDeposits = state[bankId].draft
-        currentDeposits.splice(id, 1)
+        state[bankId].draft = state[bankId].draft.filter((x) => x.id !== id)
       }
     }
 })
 
 export const {handleUpdate, handleCopy, handleRemove} = depositsSlice.actions
-
-// initialState[BankId].draft

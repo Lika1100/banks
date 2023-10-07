@@ -8,6 +8,7 @@ export interface Bank {
 }
 
 export interface Deposit {
+    id: string;
     name?: string;
     term: number;
     rate: number;

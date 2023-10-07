@@ -3,10 +3,12 @@ import { depositsSlice } from './depositsSlice';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { filterSlice } from './filtersSlice';
 
 export const store = configureStore({
     reducer: {
         deposits: depositsSlice.reducer, 
+        filters: filterSlice.reducer
     }
 })
 

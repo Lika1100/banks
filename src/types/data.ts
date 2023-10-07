@@ -6,7 +6,8 @@ export const mkbEvent: UpdateEvent = {
     date: new Date(),
     deposits: [
         {
-            rate: 14,
+            id: "f08a85a6-846e-4152-bdc5-f9e92345af34",
+            rate: 15,
             term: 95,
             min: 10_000,
             max: 1_000_000,
@@ -18,6 +19,7 @@ export const mkbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "f1f97b0a-062a-460c-a6c2-b08af8269484",
             rate: 14,
             term: 185,
             min: 10_000,
@@ -37,8 +39,9 @@ export  const bgfEvent: UpdateEvent = {
     date: new Date(),
     deposits: [
         {
-            name: "Классический весна",
-            rate: 11.5,
+            
+            id: "d7bd2df9-4c66-4b11-b087-6782e955534e",name: "Классический весна",
+            rate: 12.2,
             term: 190,
             min: 30_000,
             max: 100_000_000,
@@ -50,7 +53,8 @@ export  const bgfEvent: UpdateEvent = {
             retiree: false,
         },
         {
-            name: "Доходный",
+            
+            id: "853ff440-f929-4127-9cfc-2a8119d58cdb",name: "Доходный",
             rate: 11.3,
             term: 95,
             min: 30_000,
@@ -63,7 +67,8 @@ export  const bgfEvent: UpdateEvent = {
             retiree: false,
         },
         {
-            name: "Доходный с пролонгацией»",
+            
+            id: "b9663272-d817-4051-b5b6-489a2aa1da85",name: "Доходный с пролонгацией»",
             rate: 11.2,
             term: 130,
             min: 30_000,
@@ -84,7 +89,8 @@ export const giEvent: UpdateEvent = {
     date: new Date(),
     deposits: [
         {
-            name: "Летний",
+            
+            id: "afe0a5e0-f2ff-4651-a5b9-462146876231",name: "Летний",
             rate: 12,
             term: 91,
             min: 1_000_000,
@@ -97,7 +103,8 @@ export const giEvent: UpdateEvent = {
             retiree: false,
         },
         {
-            name: "Летний",
+            
+            id: "c36d08a8-0531-4150-99cf-b444360c01bf",name: "Летний",
             rate: 13,
             term: 181,
             min: 1_000_000,
@@ -110,7 +117,8 @@ export const giEvent: UpdateEvent = {
             retiree: false,
         },
         {
-            name: "Специальный",
+            
+            id: "9da649f3-ae33-47ea-ba66-ce5007bdb2d3",name: "Специальный",
             rate: 12.5,
             term: 271,
             min: 1_000_000,
@@ -123,7 +131,8 @@ export const giEvent: UpdateEvent = {
             retiree: false,
         },
         {
-            name: "Специальный",
+            
+            id: "db492b4b-bf1b-4676-8843-686f6eed3844",name: "Специальный",
             rate: 12,
             term: 370,
             min: 1_000_000,
@@ -144,6 +153,7 @@ export const itbEvent: UpdateEvent = {
     date: new Date(),
     deposits: [
         {
+            id: "f58b1cbd-ac9f-4a2e-b695-4fb7e3ddcfc3",
             rate: 11.3,
             term: 100,
             min: 50_000,
@@ -156,6 +166,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "1edd66e2-4f3c-4f43-a21b-11636bd2d8b6",
             rate: 12,
             term: 155,
             min: 50_000,
@@ -168,6 +179,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "0c461694-a4a4-467e-9ce5-4d58a242eaae",
             rate: 11,
             term: 370,
             min: 50_000,
@@ -180,6 +192,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "e2795fbd-eeff-46c2-afa4-e4e7bf24b355",
             rate: 9,
             term: 1110,
             min: 50_000,
@@ -192,6 +205,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "80f7c8ec-58d8-4102-98aa-cca48ccd2232",
             rate: 12.5,
             term: 155,
             min: 50_000,
@@ -204,6 +218,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "f392fea6-bbf9-499f-a18d-1910da054ada",
             rate: 11.45,
             term: 370,
             min: 50_000,
@@ -216,6 +231,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "8cba5d82-d13b-44cc-b09c-6cf9882b8cf6",
             rate: 10.5,
             term: 1110,
             min: 50_000,
@@ -228,6 +244,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "9f25efba-a379-41df-8751-31b4e7852f93",
             rate: 9.5,
             term: 91,
             min: 50_000,
@@ -240,6 +257,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "b2ebefd2-95c9-43e1-80a3-db91c53863f5",
             rate: 11.5,
             term: 181,
             min: 50_000,
@@ -252,6 +270,7 @@ export const itbEvent: UpdateEvent = {
             retiree: false,
         },
         {
+            id: "3ae56913-2b80-420b-84d0-edfc38d7c084",
             rate: 10.5,
             term: 370,
             min: 50_000,

@@ -6,6 +6,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import { Update } from './components/Update';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
+import { Preferences } from './components/Preferences';
+import { AllBanks } from './components/AllBanks';
 
 declare global {
   interface Array<T> {
@@ -25,7 +27,15 @@ const router = createBrowserRouter([
   {
     path: `/edit/:bankId`,
     element: <Update />
-  }
+  },
+  {
+    path: `/blacklist`,
+    element: <Preferences />
+  },
+  {
+    path: "/banks",
+    element: <AllBanks />
+  },
 ])
 
 const root = ReactDOM.createRoot(

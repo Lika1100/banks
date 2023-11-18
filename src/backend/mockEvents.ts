@@ -1,9 +1,30 @@
-import {UpdateEvent} from "./types";
+import {UpdateEvent} from "../types/types";
 
 
-export const mkbEvent: UpdateEvent = {
+export const mkbEvent1: UpdateEvent = {
     bankId: "mkb",
-    date: new Date(),
+    date: new Date(2023, 8, 22).toString(),
+    deposits: [
+        {
+            bankId: "mkb",
+            id: "f08a85a6-846e-4152-bdc5-f9e92345af34",
+            rate: 15,
+            term: 95,
+            min: 10_000,
+            max: 1_000_000,
+            interest: "end",
+            replenishment: 0,
+            withdrawal: false,
+            isNew: true,
+            finuslugi: true,
+            retiree: false,
+        }
+    ],
+}
+
+export const mkbEvent2: UpdateEvent = {
+    bankId: "mkb",
+    date: new Date(2023, 8, 26).toString(),
     deposits: [
         {
             id: "f08a85a6-846e-4152-bdc5-f9e92345af34",
@@ -34,9 +55,10 @@ export const mkbEvent: UpdateEvent = {
     ],
 }
 
+
 export  const bgfEvent: UpdateEvent = {
     bankId: "bgfbank",
-    date: new Date(),
+    date: new Date(2023, 8, 23).toString(),
     deposits: [
         {
             
@@ -86,7 +108,7 @@ export  const bgfEvent: UpdateEvent = {
 
 export const giEvent: UpdateEvent = {
     bankId: "garant-invest",
-    date: new Date(),
+    date: new Date(2023, 8, 24).toString(),
     deposits: [
         {
             
@@ -148,9 +170,9 @@ export const giEvent: UpdateEvent = {
 }
 
 
-export const itbEvent: UpdateEvent = {
+export const itbEvent1: UpdateEvent = {
     bankId: "investtorgbank",
-    date: new Date(),
+    date: new Date(2023, 8, 23).toString(),
     deposits: [
         {
             id: "f58b1cbd-ac9f-4a2e-b695-4fb7e3ddcfc3",
@@ -285,4 +307,77 @@ export const itbEvent: UpdateEvent = {
     ],
 }
 
-export const events = [mkbEvent, giEvent, itbEvent, bgfEvent];
+export const itbEvent2: UpdateEvent = {
+    bankId: "investtorgbank",
+    date: new Date(2023, 8, 25).toString(),
+    deposits: [
+        {
+            id: "f392fea6-bbf9-499f-a18d-1910da054ada",
+            rate: 11.45,
+            term: 370,
+            min: 50_000,
+            max: 100_000_000,
+            interest: "end",
+            replenishment: 0,
+            withdrawal: false,
+            isNew: true,
+            finuslugi: false,
+            retiree: false,
+        },
+        {
+            id: "8cba5d82-d13b-44cc-b09c-6cf9882b8cf6",
+            rate: 10.5,
+            term: 1110,
+            min: 50_000,
+            max: 100_000_000,
+            interest: "end",
+            replenishment: 0,
+            withdrawal: false,
+            isNew: true,
+            finuslugi: false,
+            retiree: false,
+        },
+        {
+            id: "9f25efba-a379-41df-8751-31b4e7852f93",
+            rate: 9.5,
+            term: 91,
+            min: 50_000,
+            max: 100_000_000,
+            interest: "monthly",
+            replenishment: 30,
+            withdrawal: false,
+            isNew: false,
+            finuslugi: false,
+            retiree: false,
+        },
+        {
+            id: "b2ebefd2-95c9-43e1-80a3-db91c53863f5",
+            rate: 11.5,
+            term: 181,
+            min: 50_000,
+            max: 100_000_000,
+            interest: "monthly",
+            replenishment: 30,
+            withdrawal: false,
+            isNew: false,
+            finuslugi: false,
+            retiree: false,
+        },
+        {
+            id: "3ae56913-2b80-420b-84d0-edfc38d7c084",
+            rate: 10.5,
+            term: 370,
+            min: 50_000,
+            max: 100_000_000,
+            interest: "monthly",
+            replenishment: 30,
+            withdrawal: false,
+            isNew: false,
+            finuslugi: false,
+            retiree: false,
+        },
+    ],
+}
+
+
+export const mockEvents = [mkbEvent1, mkbEvent2, giEvent, itbEvent1, itbEvent2, bgfEvent];

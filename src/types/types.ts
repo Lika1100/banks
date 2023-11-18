@@ -8,6 +8,7 @@ export interface Bank {
 }
 
 export interface Deposit {
+    bankId?: string
     id: string;
     name?: string;
     term: number;
@@ -23,7 +24,7 @@ export interface Deposit {
 }
 
 export interface UpdateEvent {
-    date: Date,
+    date: string,
     bankId: BankId;
     deposits: Deposit[];
 }

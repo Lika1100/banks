@@ -3,7 +3,6 @@ import { Deposit } from '../types/types'
 import s from "./Form.module.css"
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { handleCopy, handleRemove, handleUpdate } from '../redux/depositsSlice';
-import { key } from 'localforage';
 
 interface FormProps {
     deposit: Deposit;
@@ -12,7 +11,6 @@ interface FormProps {
 
 export function Form({ deposit, bankId }: FormProps) {
     const dispatch = useAppDispatch();
-
     function handleUpdateForm(updatedDeposit: Deposit) {
         dispatch(handleUpdate({
             bankId: bankId!,
@@ -55,7 +53,6 @@ export function Form({ deposit, bankId }: FormProps) {
         }
 
     }
-    console.log(currentDeposit)
 
 
     // если такой депозит уже существует — подсвечиваем желтым измененные значения

@@ -37,7 +37,19 @@ export const filterSlice = createSlice({
       state.minTerm = min;
       state.maxTerm = max;
     },
+    setIsRetiree(state, action: PayloadAction<boolean>) {
+      state.retiree = action.payload;
+    },
+    setFinUslugi(state, action: PayloadAction<boolean>) {
+      state.finuslugi = action.payload
+    },
+    setReplenishable(state, action: PayloadAction<boolean>) {
+      state.replenishable = action.payload
+    }, 
+    setInterest(state, action: PayloadAction<string>) {
+      state.interest = action.payload
+    }
   }
 })
 
-export const { setMaxTerm, setMinTerm, setTermRange } = filterSlice.actions
+export const { setMaxTerm, setMinTerm, setTermRange, setIsRetiree, setFinUslugi, setReplenishable, setInterest} = filterSlice.actions

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { id2bank } from "../types/banks";
 import s from "./DepositTable.module.css";
 import { HonestDeposit } from "./DepositsTable";
@@ -84,7 +85,7 @@ export const depositsTableColumns: Column<HonestDeposit>[] = [
   {
     title: "Форма",
     render(deposit) {
-      return <a href={`/edit/${deposit.bankId}`} className={s.edit}>Редактировать</a>
+      return <Link to={`/edit/${deposit.bankId}`} className={s.edit}>Редактировать</Link>
     }
   },
   {

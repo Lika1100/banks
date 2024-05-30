@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from './App';
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import {createBrowserRouter, HashRouter, RouterProvider} from "react-router-dom"
 import { Update } from './components/Update';
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
@@ -19,30 +19,14 @@ declare global {
 
 
 // https://reactrouter.com/en/main/route/route#route
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />
-  },
-  {
-    path: `/edit/:bankId`,
-    element: <Update />
-  },
-  {
-    path: `/blacklist`,
-    element: <Preferences />
-  },
-  {
-    path: "/banks",
-    element: <AllBanks />
-  },
-])
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>
 );

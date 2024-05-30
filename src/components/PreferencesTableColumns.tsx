@@ -4,6 +4,7 @@ import s from "./DepositTable.module.css";
 import { Column } from "./Table";
 import { HonestDeposit } from "./DepositsTable";
 import { ComeBackDepositButton } from "./ComeBackDepositButton";
+import { Link } from "react-router-dom";
 
 export const preferencesTableColumns:  Column<HonestDeposit>[] = [
     {
@@ -77,7 +78,7 @@ export const preferencesTableColumns:  Column<HonestDeposit>[] = [
     {
       title: "Форма",
       render(deposit) {
-        return <a href={`/edit/${deposit.bankId}`} className={s.edit}>Редактировать</a>
+        return <Link to={`/edit/${deposit.bankId}`} className={s.edit}>Редактировать</Link>
       }
     },
     {

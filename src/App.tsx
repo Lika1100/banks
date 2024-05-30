@@ -30,10 +30,11 @@ export function App() {
     return (
         <Container>
             <Routes>
-                <Route path="/" element={<Main />}/>
+                <Route index element={<Main />}/>
                 <Route path="/blacklist" element={<Preferences />}/>
                 <Route path="/banks" element={<AllBanks />}/>
                 <Route path="/edit/:bankId" element={<Update />}/>
+                <Route path="*" element={<Main />}/>
             </Routes>
         </Container>
     );

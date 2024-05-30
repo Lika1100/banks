@@ -2,12 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from './App';
-import {createBrowserRouter, HashRouter, RouterProvider} from "react-router-dom"
-import { Update } from './components/Update';
+import {HashRouter} from "react-router-dom"
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
-import { Preferences } from './components/Preferences';
-import { AllBanks } from './components/AllBanks';
 
 declare global {
   interface Array<T> {

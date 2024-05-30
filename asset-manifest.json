@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Lika1100/banks.git/static/css/main.d9663c99.css",
+    "main.js": "/Lika1100/banks.git/static/js/main.b8bc1827.js",
+    "index.html": "/Lika1100/banks.git/index.html",
+    "main.d9663c99.css.map": "/Lika1100/banks.git/static/css/main.d9663c99.css.map",
+    "main.b8bc1827.js.map": "/Lika1100/banks.git/static/js/main.b8bc1827.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9663c99.css",
+    "static/js/main.b8bc1827.js"
+  ]
+}

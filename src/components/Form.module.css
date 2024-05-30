@@ -3,41 +3,46 @@
     margin: 20px;
     border-radius: 10px;
 }
-.radioInput {
-    display: inline-block;
-    width: 62px; /* ширина переключателя */
-    height: 24px; /* высота переключателя */
-    border-radius: 12px; /* радиус скругления */
-    background: #bfbfbf; /* цвет фона */
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
+
+.table {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 16px;
+    background-color:rgb(243, 243, 243, 0.8);
+    margin: 8px 0;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nameInput {
+    border-radius: 8px;
+    height: 30px;
+    border-color: rgb(13, 139, 255);
+    max-width: 120px;
+}
+
+.term {
+    max-width: 50px;
+}
+
+.button {
+    background-color: rgb(13, 139, 255);
+    border: 1px solid transparent;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    width: 30px;
     cursor: pointer;
-    position: relative;
-    transition-duration: 300ms; /* анимация */
-}
-.radioInput {
-   
 }
 
-.radioInput::after {
-  content: "";
-  height: 36px; /* высота кнопки */
-  width: 36px; /* ширина кнопки */
-  border-radius: 18px; /* радиус кнопки */
-  background: #fff; /* цвет кнопки */
-  top: -8px; /* положение кнопки по вертикали относительно основы */
-  left: 8px; /* положение кнопки по горизонтали относительно основы */
-  transition-duration: 300ms; /* анимация */
-  box-shadow: 0 0 10px 0 #999999; /* тень */
-  position: absolute;
-  z-index: 1;
-}
-
-.radioInput:checked:after {
-    content: "";
-    background-color: aquamarine;
-    width: 36px;
-    height: 36px;
+.nameInput:focus {
+    outline-color: rgb(13, 139, 255);
+    border-color: rgb(13, 139, 255);
 }

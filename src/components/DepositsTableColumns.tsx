@@ -1,6 +1,5 @@
-import { Deposit } from "../types/types";
 import { id2bank } from "../types/banks";
-import s from "../App.module.css";
+import s from "./DepositTable.module.css";
 import { HonestDeposit } from "./DepositsTable";
 import { HideBankButton } from "./HideBankButton";
 import { HideDepositButton } from "./HideDepositButton";
@@ -11,10 +10,10 @@ export const depositsTableColumns: Column<HonestDeposit>[] = [
   {
     title: "Банк",
     render(deposit) {
-      const { logo, name } = id2bank[deposit.bankId!];
+      const { logo, name } = id2bank[deposit.bankId];
       return (
-        <div>
-          <img src={logo} className={s.bankLogo}/>
+        <div className={s.bank}>
+          <img src={logo} className={s.bank__img}/>
           {name}
         </div>
       )
@@ -85,19 +84,19 @@ export const depositsTableColumns: Column<HonestDeposit>[] = [
   {
     title: "Форма",
     render(deposit) {
-      return <a href={`/edit/${deposit.bankId}`}>click</a>
+      return <a href={`/edit/${deposit.bankId}`} className={s.edit}>Редактировать</a>
     }
   },
   {
     title: "Скрыть банк",
     render(deposit) {
-      return <HideBankButton bankId={deposit.bankId!}/>
+      return <HideBankButton bankId={deposit.bankId!} className={s.hideBank}/>
     }
   },
   {
     title: "Скрыть депозит",
     render(deposit) {
-      return <HideDepositButton id={deposit.id}/>
+      return <HideDepositButton id={deposit.id} className={s.hideBank}/>
     }
   },
 ]

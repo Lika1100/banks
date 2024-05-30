@@ -1,14 +1,10 @@
 
 import { TermFilters } from "./components/TermFilters";
-//import { TableDeposits } from "./components/DepositsTable";
-import { RetireeFilter } from "./components/RetireeFilter";
-import { FUFilter } from "./components/FUFilter";
-import { ReplenishableFilter } from "./components/ReplenishableFilter";
-import { InterestFilter } from "./components/InterestFilter";
-import store, { useAppSelector, useAppDispatch} from "./redux/store";
+import { useAppSelector } from "./redux/store";
 import { getHonestRate } from "./domain/getHonestRate";
-import { Table } from "./components/Table";
 import { DepositsTable } from "./components/DepositsTable";
+import Header from "./components/Header";
+import Container from "./components/Container";
 
 
 
@@ -21,20 +17,25 @@ import { DepositsTable } from "./components/DepositsTable";
 
 // ✓ только пополняемые
 
+// разделить на 4 отдельных файла events.ts
+// написать тесты на редьюсеры
+
 
 export function App() {
-    const dispatch = useAppDispatch();
     const filters = useAppSelector(state => state.filters);
     const hiddenBanks = useAppSelector(state => state.preferences.hiddenBanks);
     const hiddenDeposits = useAppSelector(state => state.preferences.hiddenDeposits);
 
     const depositsStore = useAppSelector(state => state.deposits)
-    const deposits = Object.entries(depositsStore)
-        .flatMap(([bankId, { current }]) => current.map(deposit => ({
-            ...deposit,
-            bankId,
-            honestRate: getHonestRate(deposit.rate, deposit.term)
-        })))
+    const deposits = Object.values(depositsStore)
+        .flatMap(({ current }) => {
+            return current.map((deposit) => {
+                return {
+                    ...deposit,
+                    honestRate: getHonestRate(deposit.rate, deposit.term)
+                }
+            })
+        })
         .filter((deposit) => deposit.term >= filters.minTerm && deposit.term <= filters.maxTerm)
         .filter((deposit) => {
             return filters.retiree || !deposit.retiree
@@ -54,7 +55,7 @@ export function App() {
             if (hiddenBanks.length === 0) {
                 return true
             }
-            if (!hiddenBanks.includes(deposit.bankId)) {
+            if (!hiddenBanks.includes(deposit.bankId!)) {
                 return deposit
             }
         })
@@ -68,14 +69,10 @@ export function App() {
         })
 
     return (
-        <div>
+        <Container>
+            <Header />
             <TermFilters />
-            <RetireeFilter />
-            <FUFilter />
-            <InterestFilter />
-            <ReplenishableFilter />
-            <DepositsTable deposits={deposits}/>
-            {/* <Table deposits={deposits} dispatch={dispatch}/> */}
-        </div>
+            <DepositsTable deposits={deposits} />
+        </Container>
     );
 }

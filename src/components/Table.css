@@ -1,0 +1,29 @@
+.columnTitle {
+  position: relative;
+  border: 0px;
+  font-weight: bold;
+}
+
+.depositsList {
+  display: flex;
+}
+
+.columnTitle::after {
+  content: var(--arrow);
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.arrowUp::after {
+    --arrow: "↑";
+}
+
+.arrowDown::after {
+    --arrow: "↓";
+}
+
+.chosenColumn::after {
+  display: block;
+}

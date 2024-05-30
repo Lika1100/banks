@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Deposit } from '../types/types'
 import s from "./Form.module.css"
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { handleCopy, handleRemove, handleUpdate } from '../redux/depositsSlice';
+import cn from "classnames";
+import 'pretty-checkbox'
 
 interface FormProps {
     deposit: Deposit;
@@ -40,19 +42,7 @@ export function Form({ deposit, bankId }: FormProps) {
     }
 
     const currentValues = useAppSelector(state => state.deposits[bankId].current)
-    const currentDeposit: Deposit | undefined = currentValues.find(({ id }) => deposit.id === id)
-
-    function getColor(currentDeposit: Deposit | undefined, deposit: Deposit, key: keyof Deposit) {
-        if (currentDeposit === undefined) {
-            return "";
-        }
-        if (currentDeposit[key] !== deposit[key]) {
-            return "yellow"
-        } else {
-            return ""
-        }
-
-    }
+    const currendiveposit: Deposit | undefined = currentValues.find(({ id }) => deposit.id === id)
 
 
     // если такой депозит уже существует — подсвечиваем желтым измененные значения
@@ -64,119 +54,137 @@ export function Form({ deposit, bankId }: FormProps) {
 
     return (
         <>
-            <tr style={{ marginBottom: 12, padding: 4, background: currentDeposit === undefined ? "green" : undefined }}>
-                <td className={s.nameLabel}>Name
+            <div className={s.table}>
+                <div className={s.column}>Name
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "name") }}
                         type="text"
                         name='name'
                         value={deposit.name ?? ""}
                         onChange={handleChangeText}
                         className={s.nameInput} />
-                </td>
-                <td>Days
+                </div>
+                <div className={s.column}>Days
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "term") }}
                         type='text'
                         name='term'
                         value={deposit.term}
+                        className={cn(s.nameInput, s.term)}
                         onChange={handleChangeNumber} />
-                </td>
-                <td>Percents
+                </div>
+                <div className={s.column}>Percents
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "rate") }}
                         type='text'
                         name='rate'
                         value={deposit.rate}
+                        className={cn(s.nameInput, s.term)}
                         onChange={handleChangeNumber}
                     />
-                </td>
-                <td>
-                    <label className={s.radioLabel}>
+                </div>
+                <div className={s.column}>End
+                    <div className="pretty p-switch">
                         <input
-                            style={{ background: getColor(currentDeposit, deposit, "interest") }}
-                            type='radio'
-                            name={deposit.id + "interest"}
-                            className={s.radioInput}
-                            checked={deposit.interest === "end"}
+                            type="radio"
+                            name={deposit.id + "switch1"}
                             value="end"
                             onChange={() => handleChangeInterest("end")}
-                        />
-                        end
-                    </label>
-                </td>
-                <td>
-                    <label className={s.radioLabel} style={{ background: getColor(currentDeposit, deposit, "interest") }}>
+                            checked={deposit.interest === "end"} />
+                        <div className="state p-success">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>Monthly
+                    <div className="pretty p-switch">
                         <input
-                            type='radio'
-                            name={deposit.id + "interest"}
-                            className={s.radioInput}
+                            type="radio"
+                            name={deposit.id + "switch1"}
                             checked={deposit.interest === "monthly"}
                             value="monthly"
-                            onChange={() => handleChangeInterest("monthly")}
-                        />
-                        monthly
-                    </label>
-                </td>
-                <td>Min
+                            onChange={() => handleChangeInterest("monthly")} />
+                        <div className="state p-success">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>Min
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "min") }}
                         type='text'
                         name='min'
                         value={deposit.min}
+                        className={s.nameInput}
                         onChange={handleChangeNumber} />
-                </td>
-                <td>Max
+                </div>
+                <div className={s.column}>Max
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "max") }}
                         type="text"
                         name='max'
                         value={deposit.max}
+                        className={s.nameInput}
                         onChange={handleChangeNumber} />
-                </td>
-                <td>Replenishment
+                </div>
+                <div className={s.column}>Replenishment
                     <input
-                        style={{ background: getColor(currentDeposit, deposit, "replenishment") }}
                         type="text"
                         name='replenishment'
                         value={deposit.replenishment}
+                        className={cn(s.nameInput, s.term)}
                         onChange={handleChangeNumber} />
-                </td>
-                <td style={{ background: getColor(currentDeposit, deposit, "finuslugi") }}>
-                    <input
-                        type="checkbox"
-                        name='finuslugi'
-                        checked={deposit.finuslugi}
-                        onChange={handleChangeBoolean} />FU
-                </td>
-                <td>
-                    <input
-                        type="checkbox"
-                        name='retiree'
-                        checked={deposit.retiree}
-                        onChange={handleChangeBoolean} />Retiree
-                </td>
-                <td>
-                    <input
-                        type="checkbox"
-                        name='isNew'
-                        checked={deposit.isNew}
-                        onChange={handleChangeBoolean} />New
-                </td>
-                <td>
-                    <input
-                        type="checkbox"
-                        name='withdrawal'
-                        checked={deposit.withdrawal}
-                        onChange={handleChangeBoolean} />Withdrawal
-                </td>
-                <td>
-                    <button onClick={() => dispatch(handleCopy({ id: deposit.id, bankId: bankId! }))} style={{ height: "50%" }}> + </button>
-                </td>
-                <td>
-                    <button onClick={() => dispatch(handleRemove({ id: deposit.id, bankId: bankId! }))} style={{ height: "50%" }}> - </button>
-                </td>
-            </tr>
+                </div>
+                <div className={s.column}>
+                    <div className={cn("pretty p-default", s.columnCheck)}>
+                        <input
+                            name='finuslugi'
+                            checked={deposit.finuslugi}
+                            onChange={handleChangeBoolean}
+                            type="checkbox" />
+                        <div className="state p-success">
+                            <label>FinServ</label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>
+                    <div className="pretty p-default">
+                        <input
+                            name='retiree'
+                            checked={deposit.retiree}
+                            onChange={handleChangeBoolean}
+                            type="checkbox" />
+                        <div className="state p-success">
+                            <label>Retiree</label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>
+                    <div className="pretty p-default">
+                        <input
+                            name='isNew'
+                            checked={deposit.isNew}
+                            onChange={handleChangeBoolean}
+                            type="checkbox" />
+                        <div className="state p-success">
+                            <label>New</label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>
+                    <div className="pretty p-default">
+                        <input
+                            name='withdrawal'
+                            checked={deposit.withdrawal}
+                            onChange={handleChangeBoolean}
+                            type="checkbox" />
+                        <div className="state p-success">
+                            <label>Withdrawal</label>
+                        </div>
+                    </div>
+                </div>
+                <div className={s.column}>
+                    <button onClick={() => dispatch(handleRemove({ id: deposit.id, bankId: bankId! }))} className={s.button}> - </button>
+                </div>
+                <div className={s.column}>
+                    <button onClick={() => dispatch(handleCopy({ id: deposit.id, bankId: bankId! }))} className={s.button}> + </button>
+                </div>
+            </div>
         </>
     )
 }

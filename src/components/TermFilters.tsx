@@ -1,6 +1,8 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/store';
-import {MAX_TERM, MIN_TERM, setMaxTerm, setMinTerm, setTermRange} from '../redux/filtersSlice';
+import { MAX_TERM, MIN_TERM, setMinTerm, setTermRange } from '../redux/filtersSlice';
+import s from "./TermFilters.module.css";
+import Filters from './Filters';
 
 const termRange = [
   {
@@ -36,13 +38,25 @@ export function TermFilters() {
     dispatch(setTermRange([min, max]))
   }
   return (
-    <div>
-        <input type='text' value={minTerm} onChange={handleChangeMin}/>от 
-        <input type='text' value={maxTerm} onChange={handleChangeMax}/>до
-        {termRange.map(({name, values}) => 
-        <button onClick={() => handleChangeRange(values[0], values[1])}>
-          {name}
-        </button>)}
+    <div className={s.filters}>
+      Срок
+      <div className={s.filters__inputs}>
+        <label className={s.filters__label}>
+          <p className={s.filters__text}>от</p>
+          <input type='text' value={minTerm} onChange={handleChangeMin} className={s.filters__input} />
+        </label>
+        <label className={s.filters__label}>
+          <p className={s.filters__text}>до</p>
+          <input type='text' value={maxTerm} onChange={handleChangeMax} className={s.filters__input} />
+        </label>
+        <Filters />
+      </div>
+      <div>
+        {termRange.map(({ name, values }) =>
+          <button onClick={() => handleChangeRange(values[0], values[1])} className={s.filters__button}>
+            {name}
+          </button>)}
+      </div>
     </div>
   )
 }

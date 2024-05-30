@@ -4,6 +4,9 @@ import { useAppDispatch, useAppSelector } from '../redux/store';
 import { Deposit } from '../types/types';
 import { addNewForm, handleChangeState } from '../redux/depositsSlice';
 import { saveEvent } from '../api/getEventsSlice';
+import s from "./Update.module.css";
+import Header from './Header';
+import Container from './Container';
 
 
 export function Update() {
@@ -19,15 +22,17 @@ export function Update() {
         })
         navigate(`/`)
     }
-    console.log(deposits, "???") // f34  484
+
     return (
-        <>
-            <h1>{bankId}</h1>
-            <button onClick={() => dispatch(addNewForm(bankId!))}>Добавить</button>
-            <table style={{
-                borderCollapse: "separate",
-                borderSpacing: "0 10px",
-            }}>
+        <Container>
+            <Header />
+            <h1>Bank ID: {bankId}</h1>
+            <button
+              className={s.button} 
+              onClick={() => dispatch(addNewForm(bankId!))}>
+                Добавить
+            </button>
+            <>
                 {deposits.map((deposit, i) => {
                     return (
                         <Form
@@ -37,9 +42,13 @@ export function Update() {
                         />
                     )
                 })}
-                <button onClick={() => handleSaveDraft(bankId!, deposits)}>Save</button>
-            </table>
-        </>
+                <button
+                  className={s.button}  
+                  onClick={() => handleSaveDraft(bankId!, deposits)}>
+                    Save
+                </button>
+            </>
+        </Container>
     )
 }
 

@@ -8,7 +8,6 @@ import { HonestDepositSortKey } from "../redux/sortSlice";
 
 
 export interface HonestDeposit extends Deposit {
-  bankId: string,
   honestRate: number
 }
 
@@ -28,12 +27,13 @@ export function DepositsTable({deposits}: DepositsTableProps) {
       dispatch(setSort(key))
     }
     return (
+      <>
         <Table
           onSortKeyChange={handleSorted}
           data={depositsSorted}
           columns={depositsTableColumns}
           sortKey={sorted.key}
-          sortDir={sorted.desc > 0 ? "asc" : "desc"}
-        />
+          sortDir={sorted.desc > 0 ? "asc" : "desc"}/>
+      </>
     )
 }

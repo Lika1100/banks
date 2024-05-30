@@ -1,6 +1,6 @@
-import s from "../App.module.css"
-import { useAppDispatch } from "../redux/store";
-import { setSort } from "../redux/sortSlice";
+import s from "../App.module.css";
+import "./Table.css";
+import cn from "classnames";
 
 export interface Column<T> {
     title: string,
@@ -21,11 +21,8 @@ interface TableProps<T> {
 }
 
 
-export function Table<T>({ data, columns, onSortKeyChange }: TableProps<T>) {
-    // сделать ссылками всё что что ссылки
-    // сделать всем bankId
-    // у выбранной колонки стрелочка в правильном направлении
-
+export function Table<T>({ data, columns, onSortKeyChange, sortDir, sortKey }: TableProps<T>) {
+    const sortKeyIn = sortKey
     return (
         <table className={s.depositsList}>
             <tr className={s.deposit}>
@@ -33,7 +30,16 @@ export function Table<T>({ data, columns, onSortKeyChange }: TableProps<T>) {
                     if (sortKey !== undefined) {
                         return (
                             <th>
-                                {title} <button onClick={() => onSortKeyChange?.(sortKey)}>↓</button>
+                                <button 
+                                  onClick={() => onSortKeyChange?.(sortKey)}
+                                  className={cn({
+                                    "columnTitle": true,
+                                    "arrowUp": sortDir === "asc",
+                                    "arrowDown": sortDir === "desc",
+                                    "chosenColumn": sortKey === sortKeyIn
+                                  })}>
+                                  {title} 
+                                </button>
                             </th>
                         )
                     }
@@ -53,7 +59,6 @@ export function Table<T>({ data, columns, onSortKeyChange }: TableProps<T>) {
                     )
                 })}
             </>
-            <a href={`/blacklist`}>перейти в черный список</a>
         </table>
     )
 }

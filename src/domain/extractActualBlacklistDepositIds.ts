@@ -1,4 +1,3 @@
-import { Deposit } from "../types/types";
 import { DepositsState } from "../redux/depositsSlice";
 
 export function extractActualBlacklistDeposits(

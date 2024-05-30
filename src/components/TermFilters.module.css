@@ -1,0 +1,51 @@
+.filters {
+    display: flex;
+    margin-top: 8px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filters__inputs {
+    display: flex;
+    gap: 8px;
+}
+
+.filters__label {
+    position: relative;
+}
+
+.filters__text {
+    position: absolute;
+    top: -22px;
+    left: 8px;
+    color: rgb(22, 33, 54)
+}
+
+.filters__input {
+    border-radius: 8px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 8px;
+    border: 1px solid rgb(214, 217, 224);
+    color: rgb(22, 33, 54)
+}
+
+.filters__input:focus {
+    outline: none;
+    border-color:  rgb(41, 182, 246);
+}
+
+.filters__button {
+    border-radius: 16px;
+    border: 1px solid transparent;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 250ms ease;
+    margin: 0 5px;
+}
+
+.filters__button:hover {
+    border-color: rgb(41, 182, 246);
+}
+

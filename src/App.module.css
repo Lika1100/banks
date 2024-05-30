@@ -4,6 +4,7 @@
 }
 
 .depositsList {
+    max-width: 1260px;
     border-collapse: collapse;
     margin: 20px;
 }

@@ -1,4 +1,5 @@
-import { addEvent, computeEventsSlice } from "../backend/events"
+import { addEvent } from "../backend/addEvent";
+import { computeEventsSlice } from "../backend/computeEventsSlice";
 import { Deposit, UpdateEvent } from "../types/types";
 
 export function getEventsSlice(date?: Date): Promise<UpdateEvent[]> {

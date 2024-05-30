@@ -1,0 +1,56 @@
+.wrap {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+}
+.radio {
+    display: inline-flex;
+    position: relative;
+}
+
+.radio__input {
+    position: absolute;
+    left: -100vw;
+    opacity: 0;
+}
+
+.radio__state {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgb(236, 239, 241);
+    border-radius: 16px;
+    transition: all 250ms linear;
+}
+
+.radio__label {
+    font-family: "Inter";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: black;
+}
+
+.radio__input:checked ~ .radio__state {
+   background-color: black;
+}
+
+.radio__input:checked ~ .radio__state .radio__label {
+    color: #fff;
+}
+
+.radio__input:disabled ~ .radio__state {
+    cursor: default;
+}
+
+.radio__input:disabled ~ .radio__state
+.radio__label {
+    color: gray;
+}
+
+.radio__input:disabled ~ .radio__state
+.radio__control {
+    border-color: gray;
+    background-color: gray;
+}

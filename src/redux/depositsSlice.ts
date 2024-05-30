@@ -1,12 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Deposit, BankId, UpdateEvent } from "../types/types";
+import { generateId } from "../domain/generateId";
 
 export type DepositsState = Record<BankId, { current: Deposit[], draft: Deposit[] }>
 const initialState: DepositsState = {
 };
 
 export const emptyDeposit: () => Deposit = () => ({
-  id: window.crypto.randomUUID(),
+  bankId: "",
+  id: generateId(),
   rate: 0,
   term: 0,
   min: 0,
@@ -46,7 +48,7 @@ export const depositsSlice = createSlice({
       const index = state[bankId].draft.findIndex((x) => x.id === updatedDeposit.id)
       state[bankId].draft[index] =  {
         ...updatedDeposit,
-        id: window.crypto.randomUUID(),
+        id: generateId(),
       };
     },
     handleCopy: (state, action: PayloadAction<{ id: string, bankId: string }>) => {
@@ -54,7 +56,7 @@ export const depositsSlice = createSlice({
       const draftDepositIndex = state[bankId].draft.findIndex((x) => x.id === id)
       const depositCopy: Deposit = {
         ...state[bankId].draft[draftDepositIndex],
-        id: window.crypto.randomUUID(),
+        id: generateId(),
       }
       state[bankId].draft.splice(draftDepositIndex + 1, 0, depositCopy)
     },
@@ -72,9 +74,10 @@ export const depositsSlice = createSlice({
         current: [],
         draft: [],
       }
-      state[bankId].draft.push(emptyDeposit());
-    }
+      state[bankId].draft
+        .push({...emptyDeposit(), bankId})
+      
   }
-})
+}})
 
 export const { handleUpdate, handleCopy, handleRemove, initializeDeposits, handleChangeState, addNewForm } = depositsSlice.actions

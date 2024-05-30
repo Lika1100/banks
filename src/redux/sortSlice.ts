@@ -3,7 +3,7 @@ import { SpecificTypeKeys } from "../components/Table";
 import { HonestDeposit } from "../components/DepositsTable";
 
 export type HonestDepositSortKey = SpecificTypeKeys<HonestDeposit, number>;
-interface Sorted {
+export interface Sorted {
   key: HonestDepositSortKey,
   desc: number,
 }

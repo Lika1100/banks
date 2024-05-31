@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Lika1100/banks.git/static/css/main.c06b2cf5.css",
-    "main.js": "/Lika1100/banks.git/static/js/main.e33c9138.js",
-    "index.html": "/Lika1100/banks.git/index.html",
-    "main.c06b2cf5.css.map": "/Lika1100/banks.git/static/css/main.c06b2cf5.css.map",
-    "main.e33c9138.js.map": "/Lika1100/banks.git/static/js/main.e33c9138.js.map"
+    "main.css": "/banks/static/css/main.c06b2cf5.css",
+    "main.js": "/banks/static/js/main.7619b4b6.js",
+    "index.html": "/banks/index.html",
+    "main.c06b2cf5.css.map": "/banks/static/css/main.c06b2cf5.css.map",
+    "main.7619b4b6.js.map": "/banks/static/js/main.7619b4b6.js.map"
   },
   "entrypoints": [
     "static/css/main.c06b2cf5.css",
-    "static/js/main.e33c9138.js"
+    "static/js/main.7619b4b6.js"
   ]
 }

@@ -1,9 +1,3 @@
-
-import { TermFilters } from "./components/TermFilters";
-import { useAppSelector } from "./redux/store";
-import { getHonestRate } from "./domain/getHonestRate";
-import { DepositsTable } from "./components/DepositsTable";
-import Header from "./components/Header";
 import Container from "./components/Container";
 import { Route, Routes } from "react-router-dom";
 import Main from "./Main";
